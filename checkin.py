@@ -542,7 +542,7 @@ def main():
 """)
 
     # Push
-    push_level = os.environ.get("PUSH_LEVEL", "fail_only").lower()
+    push_level = os.environ.get("PUSH_LEVEL", "always").lower()
 
     # Exchange outcomes (success or failure) are worth notifying even when
     # PUSH_LEVEL=fail_only, otherwise an always-failing exchange stays silent.
