@@ -542,13 +542,13 @@ def main():
 """)
 
     # Push
-    push_level = os.environ.get("PUSH_LEVEL", "always").lower()
+    push_level = os.environ.get("PUSH_LEVEL", "fail_only").lower()
 
     # Exchange outcomes (success or failure) are worth notifying even when
     # PUSH_LEVEL=fail_only, otherwise an always-failing exchange stays silent.
-    if push_level == "fail_only" and success_cnt == len(cookies) and exchange_events == 0:
-        log("⏭️ 根据 PUSH_LEVEL=fail_only 设置，所有账号签到成功，跳过推送")
-        return 0
+    # if push_level == "fail_only" and success_cnt == len(cookies) and exchange_events == 0:
+    #     log("⏭️ 根据 PUSH_LEVEL=fail_only 设置，所有账号签到成功，跳过推送")
+    #     return 0
 
     ptoken = os.environ.get("PUSHPLUS_TOKEN")
     tg_token = os.environ.get("TELEGRAM_BOT_TOKEN")
